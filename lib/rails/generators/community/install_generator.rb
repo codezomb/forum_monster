@@ -9,7 +9,6 @@ class Community::InstallGenerator < Rails::Generators::Base
   argument :name, :type => :string, :required => true, :desc => "Your user model name."
   
   attr_reader :singular_camel_case_name, :plural_camel_case_name, :singular_lower_case_name, :plural_lower_case_name
-  attr_reader :singular_camel_case_parent, :plural_camel_case_parent, :singular_lower_case_parent, :plural_lower_case_parent
   
   def self.source_root
     @source_root ||= File.join(File.dirname(__FILE__), 'templates')
@@ -26,6 +25,8 @@ class Community::InstallGenerator < Rails::Generators::Base
   end
   
   # Get the names for the User model
+  # Generate the models
+  
   def go
     @singular_camel_case_name = name.singularize.camelize
     @plural_camel_case_name = name.pluralize.camelize
