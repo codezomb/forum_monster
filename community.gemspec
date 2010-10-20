@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["mkelley"]
-  s.date = %q{2010-10-17}
+  s.date = %q{2010-10-19}
   s.description = %q{A Rails 3 Forum Engine}
   s.email = %q{mike.reeves@atomos13.com}
   s.extra_rdoc_files = [
@@ -17,23 +17,23 @@ Gem::Specification.new do |s|
      "README.rdoc"
   ]
   s.files = [
-    ".document",
-     ".gitignore",
-     "LICENSE",
-     "README.rdoc",
-     "Rakefile",
-     "VERSION",
-     "app/controllers/community/forums_controller.rb",
+    "app/controllers/community/forums_controller.rb",
+     "app/controllers/community/posts_controller.rb",
      "app/controllers/community/topics_controller.rb",
      "app/models/community/forum.rb",
+     "app/models/community/posts.rb",
      "app/models/community/topic.rb",
      "app/views/community/forums/index.html.erb",
-     "community.gemspec",
+     "app/views/community/forums/show.html.erb",
+     "app/views/community/topics/show.html.erb",
      "config/routes.rb",
      "lib/community.rb",
      "lib/engine.rb",
-     "test/helper.rb",
-     "test/test_community.rb"
+     "lib/rails/generators/community/install_generator.rb",
+     "lib/rails/generators/community/templates/forums.rb",
+     "lib/rails/generators/community/templates/posts.rb",
+     "lib/rails/generators/community/templates/topics.rb",
+     "lib/rails/railsties/tasks.rake"
   ]
   s.homepage = %q{http://github.com/mkelley/community}
   s.rdoc_options = ["--charset=UTF-8"]

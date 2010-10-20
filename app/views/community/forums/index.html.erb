@@ -1,1 +1,28 @@
-Forum Index!
+<div class="module">
+  <div class="module_header">Forum Index!</div>
+  <div>
+    <table>
+      <tr class="smaller">
+        <th colspan="2" align="left">Forum</th>
+        <th>Topics</th>
+        <th>Posts</th>
+        <th class="last_post" align="left">Last Post</th>
+      </tr>
+      <% @forums.each do |forum| %>
+      <tr>
+        <td class="icon"><%= image_tag 'ruby.png' %></td>
+        <td class="description">
+          <%= link_to forum.title, forum_path(forum) %><br />
+          <span class="smaller"><%= forum.description %></span>
+        </td>
+        <td class="counts smaller"><%= forum.topics.size %></td>
+        <td class="counts smaller"><%= forum.posts.size %></td>
+        <td class="last_post smaller">
+          <%= forum.topics.last.created_at %><br />
+          <%= forum.topics.last.user.username %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

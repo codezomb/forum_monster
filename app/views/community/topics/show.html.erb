@@ -1,0 +1,37 @@
+<div class="module">
+  <div class="module_header">Posts [<%= @topic.posts.size %>]</div>
+  <div>
+    <table>
+      <% @topic.posts.each do |post| %>
+      <tr>
+        <td class="post_author" rowspan="2">
+          <span class="name"><%= post.user.username %></span>
+          <span class="avatar"></span>
+          <span class="info smaller">
+            Posts 0<br />
+            Registered <%= post.user.created_at %><br />
+          </span>
+        </td>
+        <td class="post_header">
+          <span class="left post_date smaller">Posted <%= post.created_at %></span>
+          <span class="right post_controls smaller">
+            <% if logged_in? %>
+              <%= link_to "Reply" %>
+              <%= link_to "Quote" %>
+              <%= link_to "Edit" if current_user == post.user || admin? || moderator?%>
+              <%= link_to "Delete" if current_user == post.user || admin? || moderator? %>
+              <%= link_to @topic.sticky ? "Unstick" : "Sticky" if can_sticky_topic? %>
+              <%= link_to @topic.locked ? "Unlock" : "Lock" if can_lock_topic? %>
+            <% end %>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td class="post_body">
+          <%=raw post.body %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

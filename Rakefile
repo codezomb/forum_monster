@@ -11,6 +11,7 @@ begin
     gem.homepage = "http://github.com/mkelley/community"
     gem.authors = ["mkelley"]
     gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
+    gem.files = Dir["{lib}/**/*", "{app}/**/*", "{config}/**/*"]
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
