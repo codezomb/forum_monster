@@ -6,10 +6,10 @@
       <tr>
         <td class="post_author" rowspan="2">
           <span class="name"><%= post.user.username %></span>
-          <span class="avatar"></span>
+          <span class="avatar"><%= image_tag "http://www.gravatar.com/avatar/38fa12bb36a51fedbdf038434c508b64?s=125" %></span>
           <span class="info smaller">
-            Posts 0<br />
-            Registered <%= post.user.created_at %><br />
+            Posts <%= post.user.posts.size %><br />
+            Registered <%= post.user.created_at.to_s(:joined) %><br />
           </span>
         </td>
         <td class="post_header">
@@ -18,10 +18,10 @@
             <% if logged_in? %>
               <%= link_to "Reply" %>
               <%= link_to "Quote" %>
-              <%= link_to "Edit" if current_user == post.user || admin? || moderator?%>
-              <%= link_to "Delete" if current_user == post.user || admin? || moderator? %>
-              <%= link_to @topic.sticky ? "Unstick" : "Sticky" if can_sticky_topic? %>
-              <%= link_to @topic.locked ? "Unlock" : "Lock" if can_lock_topic? %>
+              <%= link_to "Edit" if current_user == post.user || current_user.admin? || current_user.moderator? %>
+              <%= link_to "Delete" if current_user == post.user || current_user.admin? || current_user.moderator? %>
+              <%= link_to @topic.sticky ? "Unstick" : "Sticky" if current_user.can_sticky_topic? %>
+              <%= link_to @topic.locked ? "Unlock" : "Lock" if current_user.can_lock_topic? %>
             <% end %>
           </span>
         </td>

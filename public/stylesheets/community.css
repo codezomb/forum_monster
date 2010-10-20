@@ -1,7 +1,7 @@
 /* Modules
 --------------------------------------------------------------------------------------------------*/
 .module { border:1px solid #e2e2e2; margin:.8em 0; background-color:#fff; }
-.module_header { color:#fff; padding:.7em .7em .7em 1.4em; background-color:#000; background-image:url(/images/stripe.png); }
+.module_header { color:#fff; padding:.7em .7em .7em 1.4em; background-color:#000; }
 .module_subheader, .module_footer { margin:.6em .8em; padding:.6em; }
 .module_subheader { border-bottom:1px solid #e2e2e2; }
 .module_footer { border-top:1px solid #e2e2e2; }
@@ -34,7 +34,7 @@ table .description { width:55%; text-align:left; padding-left:20px; }
 /* Post View Table
 --------------------------------------------------------------------------------------------------*/
 table .post_author { padding-left:25px; vertical-align:top !important; }
-table .post_author .name { padding-left:20px; font-size:1.8em; display:block; margin-bottom:5px; }
+table .post_author .name { font-size:1.8em; display:block; margin-bottom:5px; }
 table .post_author .name a { margin-left:-20px; }
 table .post_author .info { display:block; margin:5px 0; }
 table .post_body { width:80%; padding:10px 10px 30px 10px; border-bottom:0px; }

@@ -33,9 +33,8 @@ class Community::InstallGenerator < Rails::Generators::Base
     @singular_lower_case_name = name.singularize.underscore
     @plural_lower_case_name = name.pluralize.underscore
   	
-  	template 'models/topic.rb', 'app/models/community/topic.rb'
-  	template 'models/post.rb', 'app/models/community/post.rb'
-  	
+    template 'models/topic.rb', 'app/models/community/topic.rb'
+    template 'models/post.rb', 'app/models/community/post.rb'
   end
   
   # Create the migration files
@@ -49,6 +48,4 @@ class Community::InstallGenerator < Rails::Generators::Base
     sleep(1)
     migration_template 'migrations/user.rb', "db/migrate/update_#{plural_lower_case_name}_table.rb"
   end
-  
-  
 end

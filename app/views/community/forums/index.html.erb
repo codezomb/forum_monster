@@ -16,7 +16,7 @@
           <span class="smaller"><%= forum.description %></span>
         </td>
         <td class="counts smaller"><%= forum.topics.size %></td>
-        <td class="counts smaller"><%= forum.posts.size %></td>
+        <td class="counts smaller"><%= forum.posts.size - forum.topics.size %></td>
         <td class="last_post smaller">
           <%= forum.topics.last.created_at %><br />
           <%= forum.topics.last.user.username %>

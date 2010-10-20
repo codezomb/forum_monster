@@ -3,6 +3,9 @@ class Community::TopicsController < ApplicationController
   
   def show
     @topic = Topic.find(params[:id])
+    if @topic
+      @topic.hit!
+    end
   end
   
   def new

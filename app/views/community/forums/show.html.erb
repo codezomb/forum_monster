@@ -15,7 +15,7 @@
           <%= link_to topic.title, topic_path(topic) %><br />
           <span class="smaller">by <%= topic.user.username %></span>
         </td>
-        <td class="counts smaller"><%= topic.posts.size %></td>
+        <td class="counts smaller"><%= topic.posts.size - 1 %></td>
         <td class="counts smaller"><%= topic.hits %></td>
         <td class="last_post smaller">
           <%= topic.posts.last.created_at %><br />
