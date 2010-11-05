@@ -5,4 +5,5 @@ module ApplicationHelper
    def community_stylesheet_tag
      stylesheet_link_tag 'community'
    end
+   
 end

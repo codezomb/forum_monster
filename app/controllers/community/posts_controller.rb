@@ -3,7 +3,6 @@ class Community::PostsController < ApplicationController
   
   before_filter :find_parents, :only => [:create, :update, :destroy]
   before_filter :prepare_posts
-  before_filter :build_post, :only => :create
   
   def create
     if @post.save
@@ -43,6 +42,8 @@ class Community::PostsController < ApplicationController
           @post = Post.new
         when 'create'
           @post = @topic.posts.build(params[:community_post])
+          @post.user = current_user
+          @post.forum = @forum
         else
           @post = Post.find(params[:id])
       end
@@ -51,12 +52,5 @@ class Community::PostsController < ApplicationController
     def find_parents
       @forum = Community::Forum.find(params[:forum_id])
       @topic = Community::Topic.find(params[:topic_id])
-    end
-    
-    def build_post
-      if @post = @topic.posts.build(params[:community_post])
-        @post.user = current_user
-        @post.forum = @forum
-      end
     end
 end
