@@ -1,4 +1,9 @@
 <div class="module">
+  <div class="module_controls">
+    <div class="smaller left">Pages</div>
+    <div class="smaller right"><%= link_to "New Topic", new_forum_topic_path(@forum) %></div>
+    <div class="clear"></div>
+  </div>
   <div class="module_header">Topics [<%= @forum.topics.size %>]</div>
   <div>
     <table>
@@ -12,7 +17,7 @@
       <tr>
         <td class="icon"><%= image_tag 'ruby.png' %></td>
         <td class="description">
-          <%= link_to topic.title, topic_path(topic) %><br />
+          <%= link_to topic.title, forum_topic_path(@forum, topic) %><br />
           <span class="smaller">by <%= topic.user.username %></span>
         </td>
         <td class="counts smaller"><%= topic.posts.size - 1 %></td>

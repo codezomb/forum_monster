@@ -1,28 +1,36 @@
-<div class="module">
-  <div class="module_header">Forum Index!</div>
-  <div>
-    <table>
-      <tr class="smaller">
-        <th colspan="2" align="left">Forum</th>
-        <th>Topics</th>
-        <th>Posts</th>
-        <th class="last_post" align="left">Last Post</th>
-      </tr>
-      <% @forums.each do |forum| %>
-      <tr>
-        <td class="icon"><%= image_tag 'ruby.png' %></td>
-        <td class="description">
-          <%= link_to forum.title, forum_path(forum) %><br />
-          <span class="smaller"><%= forum.description %></span>
-        </td>
-        <td class="counts smaller"><%= forum.topics.size %></td>
-        <td class="counts smaller"><%= forum.posts.size - forum.topics.size %></td>
-        <td class="last_post smaller">
-          <%= forum.topics.last.created_at %><br />
-          <%= forum.topics.last.user.username %>
-        </td>
-      </tr>
-      <% end %>
-    </table>
-  </div>
-</div>
+<% @categories.each do |category| %>
+  <% unless category.forums.empty? %>
+    <div class="module">
+      <div class="module_header"><%= category.title %></div>
+      <div>
+        <table>
+          <tr class="smaller">
+            <th colspan="2" align="left">Forum</th>
+            <th>Topics</th>
+            <th>Posts</th>
+            <th class="last_post" align="left">Last Post</th>
+          </tr>
+          <% category.forums.each do |forum| %>
+          <tr>
+            <td class="icon"><%= image_tag 'ruby.png' %></td>
+            <td class="description">
+              <%= link_to forum.title, forum_path(forum) %><br />
+              <span class="smaller"><%= forum.description %></span>
+            </td>
+            <td class="counts smaller"><%= forum.topics.size %></td>
+            <td class="counts smaller"><%= forum.posts.size - forum.topics.size %></td>
+            <td class="last_post smaller">
+              <% if forum.posts.size > 0 %>
+                <%= forum.posts.last.created_at %><br />
+                <%= forum.posts.last.user.username %>
+              <% else %>
+                No Topics / Posts
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  <% end %>
+<% end %>
