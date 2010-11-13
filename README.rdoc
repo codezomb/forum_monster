@@ -4,19 +4,19 @@ Community is a simple forum engine written in rails 3. The goal of Community, is
 
 <b>There are however, a few things that Community assumes about your application.</b>
 
-  * Community requires that you have a valid 'current_user' method for the currently logged in user
-  * Community references username, as your users login name. If you don't have this setup, it's pretty easy to implement.
-  * Community will modify your user model slightly. It will add 2 columns to your user model. "community_admin", and "community_moderator". These are used to implement a minimal bit of security into the existing structure.
+ * Community requires that you have a valid 'current_user' method for the currently logged in user
+ * Community references username, as your users login name. If you don't have this setup, it's pretty easy to implement.
+ * Community will modify your user model slightly. It will add 2 columns to your user model. "community_admin", and "community_moderator". These are used to implement a minimal bit of security into the existing structure.
 
 == Installation of Community Forum Engine
 
-  1) add gem "community" to your applications Gemfile
-  2) generate installation 'rails g community:install <user model>
-  3) add 'acts_as_community_member' to users model
-  4) rake db:migrate
+ 1) add gem "community" to your applications Gemfile
+ 2) generate installation 'rails g community:install <user model>
+ 3) add 'acts_as_community_member' to users model
+ 4) rake db:migrate
 
 == Integration of Community Forum Engine
 
-  1) to use default style add stylesheet tag '<%= community_stylesheet_tag %>'
-  2) to modify community stylesheets and views run 'rails g community:views' to copy views/images/stylesheets to main application
-  3) in your user model, create a 'community_avatar' method, that will return only an image url, this will be used for avatars.
+ 1) to use default style add stylesheet tag '<%= community_stylesheet_tag %>'
+ 2) to modify community stylesheets and views run 'rails g community:views' to copy views/images/stylesheets to main application
+ 3) in your user model, create a 'community_avatar' method, that will return only an image url, this will be used for avatars.
