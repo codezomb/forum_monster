@@ -10,13 +10,13 @@ Community is a simple forum engine written in rails 3. The goal of Community, is
 
 == Installation of Community Forum Engine
 
-1) add gem "community" to your applications Gemfile
-2) generate installation 'rails g community:install <user model>
-3) add 'acts_as_community_member' to users model
-4) rake db:migrate
+* add gem "community" to your applications Gemfile
+* generate installation 'rails g community:install <user model>
+* add 'acts_as_community_member' to users model
+* rake db:migrate
 
 == Integration of Community Forum Engine
 
-1) to use default style add stylesheet tag '<%= community_stylesheet_tag %>'
-2) to modify community stylesheets and views run 'rails g community:views' to copy views/images/stylesheets to main application
-3) in your user model, create a 'community_avatar' method, that will return only an image url, this will be used for avatars.
+* to use default style add stylesheet tag '<%= community_stylesheet_tag %>'
+* to modify community stylesheets and views run 'rails g community:views' to copy views/images/stylesheets to main application
+* in your user model, create a 'community_avatar' method, that will return only an image url, this will be used for avatars.
