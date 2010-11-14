@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{community}
-  s.version = "1.0.1"
+  s.version = "1.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Gitt"]
@@ -48,7 +48,9 @@ Gem::Specification.new do |s|
     "lib/rails/generators/community/templates/models/post.rb",
     "lib/rails/generators/community/templates/models/topic.rb",
     "lib/rails/generators/community/views_generator.rb",
-    "lib/rails/railsties/tasks.rake"
+    "lib/rails/railsties/tasks.rake",
+    "public/images/ruby.png",
+    "public/stylesheets/community.css"
   ]
   s.homepage = %q{http://github.com/mkelley/community}
   s.require_paths = ["lib"]
