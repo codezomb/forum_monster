@@ -1,52 +1,49 @@
 
-Community
-=============
+=Community
 
 Community is a simple forum engine written in rails 3. The goal of Community, is to provide a simple, and easy to setup forum application without having to dictate how your site it setup. 
 
-####A few things about what Community is, and is not:
+====A few things about what Community is, and is not:
 
 * Community does not do any sort of authentication, or authorization. However, it does rely on a few "standard" methods packaged with most authentication solutions, such as current_user.
 * Community while trying to assume as little as possible, currently assumes that the following columns are available from your user model: username, and created_at.
 * Community does no authorization. By default all actions are available to all users. Even logged out users. ( Although, users who are not logged in cannot post, or create topics. )
 
 Community does not come with built in bbcode. It is up to you to decide what markdown ( if any ) you wish to use. This is done by adding the following helper method to your application_helper.rb file:
-<pre>
+
   def community_parse_text(text)
     # Your markup processing here
   end
-</pre>
 
 Community alsp does not come with build in avatar support. By default avatars are not used, but can be added by adding the following helper to your user model.
-<pre>
+  
   def method community_avatar
    # Return any sort of image path
   end
-</pre>
 
-####Installation
+====Installation
 
 Add the following to your Gemfile
-<pre>gem 'community'</pre>
+  gem 'community'
 
-Generate installation. <b>&lt;user model&gt; should be the actual name of the model containing your user accounts.</b>
-<pre>rails g community:install &lt;user model&gt;</pre>
+Generate installation. <b><user model> should be the actual name of the model containing your user accounts.</b>
+  rails g community:install <user model>
 
 Add the following to your user model
-<pre>acts_as_community_member</pre>
+  acts_as_community_member
 
 Finally, migrate your database
-<pre>rake db:migrate</pre>
+  rake db:migrate
 
-####Modifying the views, style, and adding your own images
+====Modifying the views, style, and adding your own images
 
 Community allows for 2 levels of integration.
 
 To use the default styling, and views. Add the following to your application.html.erb
-<pre><%= community_stylesheet_tag %></pre>
+  <%= community_stylesheet_tag %>
 
 To modify the default stylesheets and views run:
-<pre>rails g community:views</pre> 
+  rails g community:views
 This will copy the the views, images, and stylesheets to your application.
 
 * Views will be under app/views/community
