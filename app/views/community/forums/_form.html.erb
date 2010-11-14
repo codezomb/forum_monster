@@ -9,7 +9,7 @@
           <small>(Required)</small>
         </span>
         <span class="input indent smaller">
-          <%= f.collection_select :category_id, Community::Forum.where('category_id IS NULL'), :id, :title, :include_blank => true %>
+          <%= f.collection_select :category_id, Community::Forum.where('category_id IS NULL'), :id, :title, :prompt => 'No Category' %>
         </span>
         <div class="clear"></div>
       </div>

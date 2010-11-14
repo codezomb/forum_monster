@@ -5,8 +5,8 @@
       <%= category.title %>
       <span class="controls right smaller">
         <%= link_to "New Forum", new_forum_path %>
-        <%= link_to "Edit", edit_forum_path(category) %>
-        <%= link_to "Delete", forum_path(category), :confirm => "Are you sure you want to delete this category?", :method => :delete %>
+        <%= link_to "Edit Category", edit_forum_path(category) %>
+        <%= link_to "Delete Category", forum_path(category), :confirm => "Are you sure you want to delete this category?", :method => :delete %>
       </span>
     </div>
     <div>

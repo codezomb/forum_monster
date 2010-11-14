@@ -9,8 +9,8 @@
   <div class="module_header">
     Topics [<%= @forum.topics.size %>]
     <span class="controls right">
-      <%= link_to "Edit", edit_forum_path(@forum) %>
-      <%= link_to "Delete", forum_path(@forum), :confirm => "Are you sure you want to delete this forum?", :method => :delete %>
+      <%= link_to "Edit Forum", edit_forum_path(@forum) %>
+      <%= link_to "Delete Forum", forum_path(@forum), :confirm => "Are you sure you want to delete this forum?", :method => :delete %>
     </span>
   </div>
   <div>
