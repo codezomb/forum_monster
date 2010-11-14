@@ -45,5 +45,7 @@ class Community::InstallGenerator < Rails::Generators::Base
     migration_template 'migrations/topics.rb', 'db/migrate/create_topics_table.rb'
     sleep(1)
     migration_template 'migrations/posts.rb', 'db/migrate/create_posts_table.rb'
+    sleep(1)
+    migration_template 'migrations/user.rb', 'db/migrate/update_users_table.rb'
   end
 end

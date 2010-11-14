@@ -10,7 +10,7 @@ begin
     gem.email = "mike.reeves@atomos13.com"
     gem.homepage = "http://github.com/mkelley/community"
     gem.authors = ["Gitt"]
-    gem.files = Dir["{lib}/**/*", "{app}/**/*", "{config}/**/*"]
+    gem.files = Dir["{lib}/**/*", "{app}/**/*", "{config}/**/*", "{public}/**/*"]
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
