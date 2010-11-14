@@ -11,7 +11,11 @@
       <tr>
         <td class="post_author" rowspan="2">
           <span class="name"><%= post.user.username %></span>
-          <span class="avatar"><%= image_tag post.user.try(:community_avatar) %></span>
+          <% if !post.user.community_avatar.nil? %>
+          <span class="avatar">
+            <%= image_tag post.user.community_avatar %>
+          </span>
+          <% end %>
           <span class="info smaller">
             Posts <%= post.user.posts.size %><br />
             Registered <%= post.user.created_at.to_s(:joined) %><br />
@@ -19,25 +23,19 @@
         </td>
         <td class="post_header">
           <span class="left post_date smaller">Posted <%= post.created_at %></span>
-          <span class="right post_controls smaller">
-            <%- if logged_in? -%>
+          <span class="right controls">
               <%= link_to "Reply", new_forum_topic_post_path(@topic.forum, @topic) %>
               <%= link_to "Quote", new_forum_topic_post_path(@topic.forum, @topic, :quote => post) %>
-              <%- if current_user.id == post.user.id or current_user.can_moderate_community? -%>
-                <%= link_to "Edit", edit_forum_topic_post_path(@topic.forum, @topic, post) %>
-                <%= link_to "Delete", forum_topic_post_path(@topic.forum, @topic, post), :confirm => "Are you sure?", :method => :delete %>
-              <%- end -%>
-              <%- if current_user.can_moderate_community? -%>
-                <%= link_to @topic.sticky ? "Unstick" : "Sticky", {:controller => 'community/topics', :action => 'update', :community_topic => {:sticky => @topic.sticky ? "false" : "true" }}, :method => :put %>
-                <%= link_to @topic.locked ? "Unlock" : "Lock", {:controller => 'community/topics', :action => 'update', :community_topic => {:locked => @topic.locked ? "false" : "true" }}, :method => :put %>
-              <%- end -%>
-            <%- end -%>
+              <%= link_to "Edit", edit_forum_topic_post_path(@topic.forum, @topic, post) %>
+              <%= link_to "Delete", forum_topic_post_path(@topic.forum, @topic, post), :confirm => "Are you sure?", :method => :delete %>
+              <%= link_to @topic.sticky ? "Unstick" : "Sticky", {:controller => 'community/topics', :action => 'update', :community_topic => {:sticky => @topic.sticky ? "false" : "true" }}, :method => :put %>
+              <%= link_to @topic.locked ? "Unlock" : "Lock", {:controller => 'community/topics', :action => 'update', :community_topic => {:locked => @topic.locked ? "false" : "true" }}, :method => :put %>
           </span>
         </td>
       </tr>
       <tr>
         <td class="post_body">
-          <%=raw post.body %>
+          <%= community_parse_text(post.body) %>
         </td>
       </tr>
       <% end %>

@@ -10,9 +10,10 @@ class Community::Topic < ActiveRecord::Base
   attr_accessible :title, :body, :sticky, :locked
   
   # Validations
-  validates :title, :presence => true
-  validates :body, :presence => true, :on => :create
-  validates :posts, :presence => true, :allow_nil => false, :on => :update
+  validates :title,   :presence => true
+  validates :body,    :presence => true, :on => :create
+  validates :posts,   :presence => true, :allow_nil => false, :on => :update
+  validates :user,    :presence => true
   
   # Scopes
   default_scope :order => 'sticky DESC, updated_at DESC'
@@ -33,5 +34,4 @@ class Community::Topic < ActiveRecord::Base
         post.save
       end
     end
-  
 end

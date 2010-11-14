@@ -10,7 +10,7 @@ class Community::ViewsGenerator < Rails::Generators::Base
   # Copy the views
   def copy_views
     directory "app/views/community", "app/views/community"
-    directory "public/stylesheets", "public/stylesheets"
-    directory "public/images", "public/images"
+    directory "public/stylesheets", "public/community/stylesheets"
+    directory "public/images", "public/community/images"
   end
 end

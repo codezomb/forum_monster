@@ -8,10 +8,9 @@ class Community::Forum < ActiveRecord::Base
   belongs_to :category, :class_name => "Forum"
   
   # Accessors
-  attr_accessible :title, :description
+  attr_accessible :title, :description, :category_id
   
   # Validations
-  validates :title, :presence => true
+  validates :title,       :presence => true
   validates :description, :presence => true
-  
 end

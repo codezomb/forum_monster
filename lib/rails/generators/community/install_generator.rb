@@ -6,7 +6,7 @@ class Community::InstallGenerator < Rails::Generators::Base
   
   desc "Installs the Community Forum Engine."
   
-  argument :name, :type => :string, :required => true, :desc => "Your user model name."
+  argument :user_model, :type => :string, :required => true, :desc => "Your user model name."
   
   attr_reader :singular_camel_case_name, :plural_camel_case_name, :singular_lower_case_name, :plural_lower_case_name
   
@@ -28,10 +28,10 @@ class Community::InstallGenerator < Rails::Generators::Base
   # Generate the models
   
   def go
-    @singular_camel_case_name = name.singularize.camelize
-    @plural_camel_case_name = name.pluralize.camelize
-    @singular_lower_case_name = name.singularize.underscore
-    @plural_lower_case_name = name.pluralize.underscore
+    @singular_camel_case_name = user_model.singularize.camelize
+    @plural_camel_case_name = user_model.pluralize.camelize
+    @singular_lower_case_name = user_model.singularize.underscore
+    @plural_lower_case_name = user_model.pluralize.underscore
   	
     template 'models/topic.rb', 'app/models/community/topic.rb'
     template 'models/post.rb', 'app/models/community/post.rb'
@@ -45,7 +45,5 @@ class Community::InstallGenerator < Rails::Generators::Base
     migration_template 'migrations/topics.rb', 'db/migrate/create_topics_table.rb'
     sleep(1)
     migration_template 'migrations/posts.rb', 'db/migrate/create_posts_table.rb'
-    sleep(1)
-    migration_template 'migrations/user.rb', "db/migrate/update_#{plural_lower_case_name}_table.rb"
   end
 end

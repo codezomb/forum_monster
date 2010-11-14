@@ -1,10 +1,18 @@
 <div class="module">
   <div class="module_controls">
     <div class="smaller left">Pages</div>
-    <div class="smaller right"><%= link_to "New Topic", new_forum_topic_path(@forum) %></div>
+    <div class="smaller right">
+      <%= link_to "New Topic", new_forum_topic_path(@forum) %>
+    </div>
     <div class="clear"></div>
   </div>
-  <div class="module_header">Topics [<%= @forum.topics.size %>]</div>
+  <div class="module_header">
+    Topics [<%= @forum.topics.size %>]
+    <span class="controls right">
+      <%= link_to "Edit", edit_forum_path(@forum) %>
+      <%= link_to "Delete", forum_path(@forum), :confirm => "Are you sure you want to delete this forum?", :method => :delete %>
+    </span>
+  </div>
   <div>
     <table>
       <tr class="smaller">

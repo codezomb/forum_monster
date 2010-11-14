@@ -1,7 +1,7 @@
 class Community::TopicsController < ApplicationController
   unloadable
   
-  before_filter :find_parents, :only => [:create, :update]
+  before_filter :find_parents, :only => [:new, :create, :edit, :update]
   before_filter :prepare_topic
   
   def show

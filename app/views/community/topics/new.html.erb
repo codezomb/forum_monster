@@ -1,6 +1,1 @@
-<div class="module">
-  <div class="module_header">Create a Topic</div>
-    <div class="module_subheader smaller"></div>
-    <%= render :partial => 'form' %>
-  </div>
-</div>
+<%= render :partial => 'form', :locals => { :path => forum_topics_path(@forum) } %>

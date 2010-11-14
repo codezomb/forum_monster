@@ -4,6 +4,13 @@ class Community::PostsController < ApplicationController
   before_filter :find_parents, :only => [:create, :update, :destroy]
   before_filter :prepare_posts
   
+  def new
+    if params[:quote]
+      quote_post = Community::Post.find(params[:quote])
+      @post.body = "[quote]#{quote_post.body}[/quote]"
+    end
+  end
+  
   def create
     if @post.save
       flash[:notice] = "Post was successfully created."

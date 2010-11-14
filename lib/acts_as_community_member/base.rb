@@ -17,8 +17,8 @@ module Community
       end
     
       module InstanceMethods
-        def can_moderate_community?
-          self.community_admin? or self.community_moderator?
+        def community_avatar
+          return nil
         end
       end
     end  

@@ -1,22 +1,54 @@
-= Community
 
-Community is a simple forum engine written in rails 3. The goal of Community, is to provide a simple, and easy to setup forum application without having to dictate how your site it setup. <b>Note: This project is still not ready for testing. A lot of things are broken, and I'm working on getting it released as soon as possible.</b> Thanks to those who are supporting me through my first project!
+Community
+=============
 
-<b>There are however, a few things that Community assumes about your application.</b>
+Community is a simple forum engine written in rails 3. The goal of Community, is to provide a simple, and easy to setup forum application without having to dictate how your site it setup. 
 
-* Community requires that you have a valid 'current_user' method for the currently logged in user
-* Community references username, as your users login name. If you don't have this setup, it's pretty easy to implement.
-* Community will modify your user model slightly. It will add 2 columns to your user model. "community_admin", and "community_moderator". These are used to implement a minimal bit of security into the existing structure.
+####A few things about what Community is, and is not:
 
-== Installation of Community Forum Engine
+* Community does not do any sort of authentication, or authorization. However, it does rely on a few "standard" methods packaged with most authentication solutions, such as current_user.
+* Community while trying to assume as little as possible, currently assumes that the following columns are available from your user model: username, and created_at.
+* Community does no authorization. By default all actions are available to all users. Even logged out users. ( Although, users who are not logged in cannot post, or create topics. )
 
-* add gem "community" to your applications Gemfile
-* generate installation 'rails g community:install <user model>
-* add 'acts_as_community_member' to users model
-* rake db:migrate
+Community does not come with built in bbcode. It is up to you to decide what markdown ( if any ) you wish to use. This is done by adding the following helper method to your application_helper.rb file:
+<pre>
+  def community_parse_text(text)
+    # Your markup processing here
+  end
+</pre>
 
-== Integration of Community Forum Engine
+Community alsp does not come with build in avatar support. By default avatars are not used, but can be added by adding the following helper to your user model.
+<pre>
+  def method community_avatar
+   # Return any sort of image path
+  end
+</pre>
 
-* to use default style add stylesheet tag '<%= community_stylesheet_tag %>'
-* to modify community stylesheets and views run 'rails g community:views' to copy views/images/stylesheets to main application
-* in your user model, create a 'community_avatar' method, that will return only an image url, this will be used for avatars.
+####Installation
+
+Add the following to your Gemfile
+<pre>gem 'community'</pre>
+
+Generate installation. <b>&lt;user model&gt; should be the actual name of the model containing your user accounts.</b>
+<pre>rails g community:install &lt;user model&gt;</pre>
+
+Add the following to your user model
+<pre>acts_as_community_member</pre>
+
+Finally, migrate your database
+<pre>rake db:migrate</pre>
+
+####Modifying the views, style, and adding your own images
+
+Community allows for 2 levels of integration.
+
+To use the default styling, and views. Add the following to your application.html.erb
+<pre><%= community_stylesheet_tag %></pre>
+
+To modify the default stylesheets and views run:
+<pre>rails g community:views</pre> 
+This will copy the the views, images, and stylesheets to your application.
+
+* Views will be under app/views/community
+* Images will be under public/community/images
+* Stylesheets will be places under public/community/stylesheets

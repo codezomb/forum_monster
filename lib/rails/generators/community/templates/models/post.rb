@@ -10,9 +10,15 @@ class Community::Post < ActiveRecord::Base
   
   # Validations
   validates :body, :presence => true
+  validates :user, :presence => true
   
-  # Scopes
+  # Default Scope
   default_scope :order => 'created_at ASC'
+  
+  # Scope to display only the last n posts. Used for "Recent Posts" display
+  scope :recent, lambda {
+    |c| reorder('created_at desc').limit(c)
+  }
   
   # Callbacks
   before_save :topic_locked?
