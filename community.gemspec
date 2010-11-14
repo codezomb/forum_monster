@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Gitt"]
-  s.date = %q{2010-11-13}
+  s.date = %q{2010-11-14}
   s.description = %q{A Rails 3 Forum Engine}
   s.email = %q{mike.reeves@atomos13.com}
   s.extra_rdoc_files = [
@@ -39,7 +39,6 @@ Gem::Specification.new do |s|
     "lib/application_helper.rb",
     "lib/community.rb",
     "lib/engine.rb",
-    "lib/rails/generators/community/community_generator.rb",
     "lib/rails/generators/community/install_generator.rb",
     "lib/rails/generators/community/templates/migrations/forums.rb",
     "lib/rails/generators/community/templates/migrations/posts.rb",
