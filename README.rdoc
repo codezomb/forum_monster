@@ -42,15 +42,4 @@ Community has no forced support for markdown. Again, it's for ( can you say it w
 
 ====Modifying the views, style, and adding your own images
 
-Community allows for 2 levels of integration.
-
-To use the default styling, and views. Add the following to your application.html.erb
-  <%= community_stylesheet_tag %>
-
-To modify the default stylesheets and views run:
-  rails g community:views
-This will copy the the views, images, and stylesheets to your application.
-
-* Views will be under app/views/community
-* Images will be under public/community/images
-* Stylesheets will be places under public/community/stylesheets
+Community will install the community.css stylesheet into your public/stylesheets directory. The views will be installed in your application app/views directory.
