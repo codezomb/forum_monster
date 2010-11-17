@@ -5,8 +5,8 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "community"
-    gem.summary = %Q{A Rails 3 Forum Engine}
-    gem.description = %Q{A Rails 3 Forum Engine}
+    gem.summary = %Q{A Rails 3 Forum Generator}
+    gem.description = %Q{A Rails 3 Forum Generator}
     gem.email = "mike.reeves@atomos13.com"
     gem.homepage = "http://github.com/gitt/community"
     gem.authors = ["Gitt"]
