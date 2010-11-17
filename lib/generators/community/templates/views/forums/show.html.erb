@@ -1,0 +1,36 @@
+<div class="right controls"><%= link_to "Back to Forum List", forums_path %></div>
+<div class="module">
+  <div class="module_header">
+    <%= @forum.title %>
+    <span class="controls right">
+      <%= link_to "New Topic", new_forum_topic_path(@forum) %>
+      <%= link_to "Edit Forum", edit_forum_path(@forum) %>
+      <%= link_to "Delete Forum", forum_path(@forum), :confirm => "Are you sure you want to delete this forum?", :method => :delete %>
+    </span>
+  </div>
+  <div>
+    <table>
+      <tr class="smaller">
+        <th colspan="2" align="left">Topic</th>
+        <th>Replies</th>
+        <th>Views</th>
+        <th class="last_post" align="left">Last Post</th>
+      </tr>
+      <% @forum.topics.each do |topic| %>
+      <tr>
+        <td class="icon"><%= image_tag 'ruby.png' %></td>
+        <td class="description">
+          <%= link_to topic.title, topic_path(topic) %><br />
+          <span class="smaller">by <%= topic.user.username %></span>
+        </td>
+        <td class="counts smaller"><%= topic.posts.size - 1 %></td>
+        <td class="counts smaller"><%= topic.hits %></td>
+        <td class="last_post smaller">
+          <%= topic.posts.last.created_at %><br />
+          by <%= topic.posts.last.user.username %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+/* Modules
+--------------------------------------------------------------------------------------------------*/
+.module { border:1px solid #e2e2e2; margin:.8em 0; background-color:#fff; overflow:auto; }
+.module_controls { padding:.8em; }
+.module_header { color:#fff; padding:.7em .7em .7em 1.4em; background-color:#000; }
+.module_header a { color:#fff; }
+.module_subheader, .module_footer { margin:.6em .8em; padding:.6em; }
+.module_subheader { border-bottom:1px solid #e2e2e2; }
+.module_footer { border-top:1px solid #e2e2e2; }
+.module_body { padding:1em; }
+
+/* Form Fields & Labels
+--------------------------------------------------------------------------------------------------*/
+.module .fieldset { width:100%; }
+.module .fieldset .indent { width:16em; }
+.module .fieldset .label { font-weight:bold; text-align:right; display:block; float:left; padding:6px 0px 2px 1em; }
+.module .fieldset .label small { font-weight:normal; }
+.module .fieldset .input { padding:.2em 1em; display:block; float:left; }
+
+/* Common
+--------------------------------------------------------------------------------------------------*/
+.module .clear { clear: both; height: 0; overflow: hidden; }
+.module .smaller { font-size:.9em; }
+.module .left { float:left; }
+.module .right { float:right; text-align:right; }
+.controls a { margin:0 5px; font-size:.8em; }
+
+/* Tables
+--------------------------------------------------------------------------------------------------*/
+table { width:100%; border-collapse:collapse; }
+table th { font-weight:normal; padding:.7em; font-size:.8em; }
+table td { padding:.5em; border:1px solid #e2e2e2; border-bottom:0px; vertical-align:top; background:#fff; }
+table td:first-child { border-left:0px; }
+table td:last-child { border-right:0px; }
+
+table .icon { width:26px; text-align:center; }
+table .counts { width:8%; text-align:center; }
+table .last_post { padding-left:10px; }
+table .description { width:55%; text-align:left; padding-left:20px; }
+
+/* Post View Table
+--------------------------------------------------------------------------------------------------*/
+table .post_author { padding-left:15px; vertical-align:top !important; }
+table .post_author .name { font-size:1.5em; display:block; margin-bottom:5px; }
+table .post_author .name a { margin-left:-20px; }
+table .post_author .info { display:block; margin:5px 0; }
+table .post_body { width:80%; padding:10px 10px 30px 10px; border-bottom:0px; }
+
+/* BBCode
+--------------------------------------------------------------------------------------------------*/
+blockquote {
+  border: 1px solid #e2e2e2;
+  font-style: italic;
+  margin: 10px 0px 0px 25px;
+  padding: 10px;
+ }
