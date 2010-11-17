@@ -8,7 +8,10 @@ class Forum < ActiveRecord::Base
   belongs_to :category, :class_name => "Forum"
   
   # Accessors
-  attr_accessible :title, :description, :category_id
+  attr_accessible :title, :description, :state, :position, :category_id
+  
+  # Scopes
+  default_scope :order => 'position ASC'
   
   # Validations
   validates :title,       :presence => true

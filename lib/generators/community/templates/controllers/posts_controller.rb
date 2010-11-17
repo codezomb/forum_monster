@@ -1,13 +1,13 @@
-class PostsController < ApplicationController
-  unloadable
-    
+class PostsController < ApplicationController    
   def new
     @topic = Topic.find(params[:topic_id])
     @post = Post.new
     
     if params[:quote]
       quote_post = Post.find(params[:quote])
-      @post.body = "[quote]#{quote_post.body}[/quote]"
+      if quote_post
+        @post.body = quote_post
+      end
     end
   end
   

@@ -1,6 +1,4 @@
-class ForumsController < ApplicationController
-  unloadable
-  
+class ForumsController < ApplicationController  
   def index
     @categories = Forum.where('category_id IS NULL')
   end
@@ -29,7 +27,7 @@ class ForumsController < ApplicationController
   end
   
   def update
-    @forum = Forum.find(params[:id], :conditions => 'category_id IS NOT NULL')
+    @forum = Forum.find(params[:id])
     
     if @forum.update_attributes(params[:forum])
       if @forum.category_id.nil?

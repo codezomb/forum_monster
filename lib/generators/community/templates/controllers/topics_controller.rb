@@ -1,6 +1,4 @@
-class TopicsController < ApplicationController
-  unloadable
-  
+class TopicsController < ApplicationController  
   def show
     @topic = Topic.find(params[:id])
     @topic.hit! if @topic

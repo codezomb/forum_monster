@@ -6,7 +6,7 @@ class Community::InstallGenerator < Rails::Generators::Base
   
   desc "Installs the Community Forum Engine."
   
-  argument :user_model, :type => :string, :required => true, :desc => "Your user model name."
+  argument :user_model, :type => :string, :required => false, :default => "User", :desc => "Your user model name."
   
   attr_reader :singular_camel_case_name, :plural_camel_case_name, :singular_lower_case_name, :plural_lower_case_name
   

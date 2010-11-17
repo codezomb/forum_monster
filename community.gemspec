@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{community}
-  s.version = "0.1.0"
+  s.version = "0.1.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Gitt"]
-  s.date = %q{2010-11-16}
+  s.date = %q{2010-11-17}
   s.description = %q{A Rails 3 Forum Generator}
   s.email = %q{mike.reeves@atomos13.com}
   s.extra_rdoc_files = [
@@ -44,11 +44,11 @@ Gem::Specification.new do |s|
      "lib/generators/community/templates/views/topics/new.html.erb",
      "lib/generators/community/templates/views/topics/show.html.erb"
   ]
-  s.homepage = %q{http://github.com/mkelley/community}
+  s.homepage = %q{http://github.com/gitt/community}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
-  s.summary = %q{A Rails 3 Forum Engine}
+  s.summary = %q{A Rails 3 Forum Generator}
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
