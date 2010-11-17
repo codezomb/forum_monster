@@ -8,7 +8,7 @@ begin
     gem.summary = %Q{A Rails 3 Forum Engine}
     gem.description = %Q{A Rails 3 Forum Engine}
     gem.email = "mike.reeves@atomos13.com"
-    gem.homepage = "http://github.com/mkelley/community"
+    gem.homepage = "http://github.com/gitt/community"
     gem.authors = ["Gitt"]
     gem.files = Dir["{lib}/**/*", "{app}/**/*", "{config}/**/*", "{public}/**/*"]
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
