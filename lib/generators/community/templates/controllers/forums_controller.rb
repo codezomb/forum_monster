@@ -1,8 +1,4 @@
-class ForumsController < ApplicationController  
-  def index
-    @categories = Forum.where('category_id IS NULL')
-  end
-  
+class ForumsController < ApplicationController    
   def show
     @forum = Forum.find(params[:id])
   end
@@ -30,13 +26,8 @@ class ForumsController < ApplicationController
     @forum = Forum.find(params[:id])
     
     if @forum.update_attributes(params[:forum])
-      if @forum.category_id.nil?
-        flash[:notice] = "Category was updated successfully."
-        redirect_to forums_url
-      else
-        flash[:notice] = "Forum was updated successfully."
-        redirect_to forum_url(@forum)
-      end
+      flash[:notice] = "Forum was updated successfully."
+      redirect_to forum_url(@forum)
     end
   end
   

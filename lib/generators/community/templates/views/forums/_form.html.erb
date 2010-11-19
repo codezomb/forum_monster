@@ -14,7 +14,7 @@
           <small>(Required)</small>
         </span>
         <span class="input indent smaller">
-          <%= f.collection_select :category_id, Forum.where('category_id IS NULL'), :id, :title, :prompt => 'No Category' %>
+          <%= f.collection_select :category_id, Category.all, :id, :title %>
         </span>
         <div class="clear"></div>
       </div>
