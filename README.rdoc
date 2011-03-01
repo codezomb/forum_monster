@@ -1,6 +1,6 @@
 =Community
 
-Support requests can be submitted at:
+Issues, and feature requests can be submitted at:
 https://atomos13.codebasehq.com/open-source-software/tickets
 
 Community is a simple forum generator written in rails 3. The goal of Community, is to provide a simple, and easy to setup forum application without having to dictate how your site it setup. 
