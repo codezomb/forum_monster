@@ -1,6 +1,7 @@
 ## MAC OS
 .DS_Store
 ._*
+.AppleDouble
 
 ## TEXTMATE
 *.tmproj
