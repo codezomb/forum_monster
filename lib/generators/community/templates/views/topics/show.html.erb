@@ -24,10 +24,10 @@
         <td class="post_header">
           <span class="left post_date smaller">Posted <%= post.created_at %></span>
           <span class="right controls">
-              <%= link_to "Reply", new_topic_post_path(@topic) %>
-              <%= link_to "Quote", new_topic_post_path(@topic, :quote => post) %>
-              <%= link_to "Edit", edit_post_path(post) %>
-              <%= link_to "Delete", post, :confirm => "Are you sure?", :method => :delete %>
+            <%= link_to "Reply", new_topic_post_path(@topic) %>
+            <%= link_to "Quote", new_topic_post_path(@topic, :quote => post) %>
+            <%= link_to "Edit", edit_post_path(post) %>
+            <%= link_to "Delete", post, :confirm => "Are you sure?", :method => :delete %>
           </span>
         </td>
       </tr>

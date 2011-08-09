@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.authors = ["Gitt"]
   s.date = %q{2011-03-28}
   s.description = %q{A Rails 3 Forum Generator}
-  s.email = %q{mike.reeves@atomos13.com}
+  s.email = %q{mike@codezombie.org}
   s.extra_rdoc_files = [
     "LICENSE",
     "README.rdoc"

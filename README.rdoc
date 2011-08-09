@@ -1,7 +1,8 @@
 =Community
 
-Issues, and feature requests can be submitted at:
-https://atomos13.codebasehq.com/open-source-software/tickets
+I've re-activated the issue tracker on the Github repository page.
+I will be working on a refactoring of this code, please report any bugs you may find. I will greatly appreciate it.
+*Pull requests welcome!*
 
 Community is a simple forum generator written in rails 3. The goal of Community, is to provide a simple, and easy to setup forum application without having to dictate how your site it setup. 
 
@@ -32,7 +33,7 @@ Community, as stated before, does not come with any authentication built in. The
 
 ====Authorization
 
-Community, by default, allows all access to all users. Even those that are not currently logged in. This was by design, because of the vast number of authorization methods out there. If we tried to cover all of them it would just be a huge project. Not to mention that as soon as an API changes, Community would be broken. This also provides a large amount of flexibility. For example, if you wanted to use CanCan, you can! declarative_authorization? Yep. Aegis? Indeed! Since you have Community's controllers in your main application, you can customize them for your specific solution just like the rest of your application!
+Community, by default, allows all access to all users. Even those that are not currently logged in. This was by design, because of the vast number of authorization methods out there. If I tried to cover all of them it would just get out of hand. Not to mention that as soon as an API changes, Community would be broken. This also provides a large amount of flexibility. For example, if you wanted to use CanCan, you can! declarative_authorization? Yep. Aegis? Indeed! Since you have Community's controllers in your main application, you can customize them for your specific solution just like the rest of your application!
 
 ====Avatars
 
@@ -40,7 +41,7 @@ I did not include support for avatars into Community for the same reason that au
 
 ====Markdown
 
-Community has no forced support for markdown. Again, it's for ( can you say it with me? ) flexibility!
+Community has no forced support for markdown. Again, it's for flexibility.
 
 ====Modifying the views, style, and adding your own images
 

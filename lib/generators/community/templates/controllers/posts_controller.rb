@@ -6,7 +6,7 @@ class PostsController < ApplicationController
     if params[:quote]
       quote_post = Post.find(params[:quote])
       if quote_post
-        @post.body = quote_post
+        @post.body = quote_post.body
       end
     end
   end

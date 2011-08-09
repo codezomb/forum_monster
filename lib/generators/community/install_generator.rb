@@ -4,7 +4,7 @@ require 'rails/generators/migration'
 class Community::InstallGenerator < Rails::Generators::Base
   include Rails::Generators::Migration
   
-  desc "Installs the Community Forum Engine."
+  desc "Installs the Community Forum Gem."
   
   argument :user_model, :type => :string, :required => false, :default => "User", :desc => "Your user model name."
   
@@ -52,13 +52,9 @@ class Community::InstallGenerator < Rails::Generators::Base
 
   def create_migrations
     migration_template 'migrations/categories.rb', 'db/migrate/create_categories_table.rb'
-    sleep(1)
     migration_template 'migrations/forums.rb', 'db/migrate/create_forums_table.rb'
-    sleep(1)
     migration_template 'migrations/topics.rb', 'db/migrate/create_topics_table.rb'
-    sleep(1)
     migration_template 'migrations/posts.rb', 'db/migrate/create_posts_table.rb'
-    sleep(1)
     migration_template 'migrations/user.rb', 'db/migrate/update_users_table.rb'
   end
   
@@ -70,5 +66,14 @@ class Community::InstallGenerator < Rails::Generators::Base
     end
     root :to => 'categories#index', :via => :get
   end"
+  end
+  
+  def self.next_migration_number(path)
+    unless @prev_migration_nr
+      @prev_migration_nr = Time.now.utc.strftime("%Y%m%d%H%M%S").to_i
+    else
+      @prev_migration_nr += 1
+    end
+    @prev_migration_nr.to_s
   end
 end
