@@ -4,7 +4,7 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{community}
+  s.name = %q{forum_monster}
   s.version = "0.1.8"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/gitt/forum_monster}
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.5.2}
-  s.summary = %q{A Rails 3 Forum Generator}
+  s.summary = %q{A Simple Rails 3 Forum Generator}
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
