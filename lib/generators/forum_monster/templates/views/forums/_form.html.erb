@@ -1,0 +1,61 @@
+<div class="module">
+  <div class="module_header"><%= action_name.humanize %> Forum</div>
+    <div class="module_subheader smaller">
+      <em>To create a category, leave the category field unselected.</em>
+    </div>
+    <div class="module_body">
+      <%= form_for @forum do |f| %>
+      <% if @forum.errors.any? %>
+        <% flash.now[:error] = @forum.errors.full_messages.join(', and ') %>
+      <% end %>
+      <div class="fieldset">
+        <span class="label indent smaller">
+          <%= f.label :category_id %><br />
+          <small>(Required)</small>
+        </span>
+        <span class="input indent smaller">
+          <%= f.collection_select :category_id, Category.all, :id, :title %>
+        </span>
+        <div class="clear"></div>
+      </div>
+      <div class="fieldset">
+        <span class="label indent smaller">
+          <%= f.label :title %><br />
+          <small>(Required)</small>
+        </span>
+        <span class="input indent smaller"><%= f.text_field :title, :size => 75 %></span>
+        <div class="clear"></div>
+      </div>
+      <div class="fieldset">
+        <span class="label indent smaller">
+          <%= f.label :description %><br />
+          <small>(Required)</small>
+        </span>
+        <span class="input indent smaller"><%= f.text_area :description, :cols => 60, :rows => 5 %></span>
+        <div class="clear"></div>
+      </div>
+      <div class="fieldset">
+        <span class="label indent smaller">
+          <%= f.label :position %>
+        </span>
+        <span class="input indent smaller"><%= f.text_field :position %></span>
+        <div class="clear"></div>
+      </div>
+      <div class="fieldset">
+        <span class="label indent smaller"></span>
+        <span class="input indent smaller">
+          <%= f.check_box :state %>
+          <%= f.label :state %>
+        </span>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="module_footer">
+      <div class="fieldset">
+        <span class="input"><%= f.submit "submit" %> or <%= link_to "cancel", @forum.nil? ? forum_path(@forum) : forums_path %></span>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

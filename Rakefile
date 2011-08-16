@@ -4,12 +4,12 @@ require 'rake'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "community"
+    gem.name = "Forum Monster"
     gem.summary = %Q{A Rails 3 Forum Generator}
     gem.description = %Q{A Rails 3 Forum Generator}
-    gem.email = "mike.reeves@atomos13.com"
-    gem.homepage = "http://github.com/gitt/community"
-    gem.authors = ["Gitt"]
+    gem.email = "mike@codezombie.org"
+    gem.homepage = "http://github.com/gitt/forum_monster"
+    gem.authors = ["Mike Kelley"]
     gem.files = Dir["{lib}/**/*", "{app}/**/*", "{config}/**/*", "{public}/**/*"]
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
@@ -47,7 +47,7 @@ Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "community #{version}"
+  rdoc.title = "Forum Monster #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end

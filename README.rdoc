@@ -1,24 +1,24 @@
-=Community
+=Forum Monster
 
 I've re-activated the issue tracker on the Github repository page.
 I will be working on a refactoring of this code, please report any bugs you may find. I will greatly appreciate it.
 *Pull requests welcome!*
 
-Community is a simple forum generator written in rails 3. The goal of Community, is to provide a simple, and easy to setup forum application without having to dictate how your site it setup. 
+Forum Monster is a simple forum generator written in rails 3. The goal of Forum Monster, is to provide a simple, and easy to setup forum application without having to dictate how your site it setup. 
 
-====A few things about what Community is, and is not:
+====A few things about what Forum Monster is, and is not:
 
-* Community does not do any sort of authentication, or authorization. However, it does rely on the current_user method.
-* Community while trying to assume as little as possible, currently assumes that the following columns are available from your user model: username, and created_at.
-* Community does no authorization. By default all actions are available to all users. Even logged out users. ( Although, users who are not logged in cannot post, or create topics. )
+* Forum Monster does not do any sort of authentication, or authorization. However, it does rely on the current_user method.
+* Forum Monster while trying to assume as little as possible, currently assumes that the following columns are available from your user model: username, and created_at.
+* Forum Monster does no authorization. By default all actions are available to all users. Even logged out users. ( Although, users who are not logged in cannot post, or create topics. )
 
 ====Installation
 
 Add the following to your Gemfile
-  gem 'community'
+  gem 'forum_monster'
 
 Generate the installation. <b><user model> should be the actual name of the model containing your user accounts.</b> This will copy all of the required controllers, models, views, and stylesheets to your application.
-  rails g community:install <user model>
+  rails g forum_monster:install <user model>
 
 Add the following to your user model to setup the needed associations with user/topics/posts
   has_many :topics, :dependent => :destroy
@@ -29,20 +29,20 @@ Finally, migrate your database
   
 ====Authentication
 
-Community, as stated before, does not come with any authentication built in. The reason for this is so you can add a forum to your existing application without having to change the way your application works. Community knows about your user model from the moment you run the installation command.
+Forum Monster, as stated before, does not come with any authentication built in. The reason for this is so you can add a forum to your existing application without having to change the way your application works. Forum Monster knows about your user model from the moment you run the installation command.
 
 ====Authorization
 
-Community, by default, allows all access to all users. Even those that are not currently logged in. This was by design, because of the vast number of authorization methods out there. If I tried to cover all of them it would just get out of hand. Not to mention that as soon as an API changes, Community would be broken. This also provides a large amount of flexibility. For example, if you wanted to use CanCan, you can! declarative_authorization? Yep. Aegis? Indeed! Since you have Community's controllers in your main application, you can customize them for your specific solution just like the rest of your application!
+Forum Monster, by default, allows all access to all users. Even those that are not currently logged in. This was by design, because of the vast number of authorization methods out there. If I tried to cover all of them it would just get out of hand. Not to mention that as soon as an API changes, Forum Monster would be broken. This also provides a large amount of flexibility. For example, if you wanted to use CanCan, you can! declarative_authorization? Yep. Aegis? Indeed! Since you have Forum Monster's controllers in your main application, you can customize them for your specific solution just like the rest of your application!
 
 ====Avatars
 
-I did not include support for avatars into Community for the same reason that authentication, and authorization were not included. Flexibility! You can use whatever you like, associate it with your user model, and put the corresponding image tag in the topic show view.
+I did not include support for avatars into Forum Monster for the same reason that authentication, and authorization were not included. Flexibility! You can use whatever you like, associate it with your user model, and put the corresponding image tag in the topic show view.
 
 ====Markdown
 
-Community has no forced support for markdown. Again, it's for flexibility.
+Forum Monster has no forced support for markdown. Again, it's for flexibility.
 
 ====Modifying the views, style, and adding your own images
 
-Community will install the community.css stylesheet into your public/stylesheets directory. The views will be installed in your application app/views directory.
+Forum Monster will install the forum-monster.css stylesheet into your public/stylesheets directory. The views will be installed in your application app/views directory.

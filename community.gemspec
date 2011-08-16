@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.version = "0.1.8"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Gitt"]
+  s.authors = ["Mike Kelley"]
   s.date = %q{2011-03-28}
   s.description = %q{A Rails 3 Forum Generator}
   s.email = %q{mike@codezombie.org}
@@ -16,42 +16,11 @@ Gem::Specification.new do |s|
     "LICENSE",
     "README.rdoc"
   ]
-  s.files = [
-    "lib/community.rb",
-    "lib/generators/community/install_generator.rb",
-    "lib/generators/community/templates/controllers/categories_controller.rb",
-    "lib/generators/community/templates/controllers/forums_controller.rb",
-    "lib/generators/community/templates/controllers/posts_controller.rb",
-    "lib/generators/community/templates/controllers/topics_controller.rb",
-    "lib/generators/community/templates/migrations/categories.rb",
-    "lib/generators/community/templates/migrations/forums.rb",
-    "lib/generators/community/templates/migrations/posts.rb",
-    "lib/generators/community/templates/migrations/topics.rb",
-    "lib/generators/community/templates/migrations/user.rb",
-    "lib/generators/community/templates/models/category.rb",
-    "lib/generators/community/templates/models/forum.rb",
-    "lib/generators/community/templates/models/post.rb",
-    "lib/generators/community/templates/models/topic.rb",
-    "lib/generators/community/templates/public/images/ruby.png",
-    "lib/generators/community/templates/public/stylesheets/community.css",
-    "lib/generators/community/templates/views/categories/_form.html.erb",
-    "lib/generators/community/templates/views/categories/edit.html.erb",
-    "lib/generators/community/templates/views/categories/index.html.erb",
-    "lib/generators/community/templates/views/categories/new.html.erb",
-    "lib/generators/community/templates/views/forums/_form.html.erb",
-    "lib/generators/community/templates/views/forums/edit.html.erb",
-    "lib/generators/community/templates/views/forums/index.html.erb",
-    "lib/generators/community/templates/views/forums/new.html.erb",
-    "lib/generators/community/templates/views/forums/show.html.erb",
-    "lib/generators/community/templates/views/posts/_form.html.erb",
-    "lib/generators/community/templates/views/posts/edit.html.erb",
-    "lib/generators/community/templates/views/posts/new.html.erb",
-    "lib/generators/community/templates/views/topics/_form.html.erb",
-    "lib/generators/community/templates/views/topics/edit.html.erb",
-    "lib/generators/community/templates/views/topics/new.html.erb",
-    "lib/generators/community/templates/views/topics/show.html.erb"
-  ]
-  s.homepage = %q{http://github.com/gitt/community}
+  
+  s.files = `git ls-files`.split("\n")
+  s.executables = `git ls-files`.split("\n").map{|f| f =~ /^bin\/(.*)/ ? $1 : nil}.compact
+  
+  s.homepage = %q{http://github.com/gitt/forum_monster}
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.5.2}
   s.summary = %q{A Rails 3 Forum Generator}

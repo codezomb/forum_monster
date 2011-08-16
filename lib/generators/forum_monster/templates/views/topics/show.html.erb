@@ -1,0 +1,42 @@
+<div class="right controls"><%= link_to "Back to Forum", forum_path(@topic.forum) %></div>
+<div class="module">
+  <div class="module_header">
+    <%= @topic.title %>
+    <span class="right controls">
+      <%= link_to "Edit", edit_topic_path(@topic) %>
+      <%= link_to "Delete", @topic, :confirm => "Are you sure?", :method => :delete %>
+      <%= link_to @topic.sticky ? "Unstick" : "Sticky", {:controller => 'topics', :action => 'update', :topic => {:sticky => @topic.sticky ? "false" : "true" }}, :method => :put %>
+      <%= link_to @topic.locked ? "Unlock" : "Lock", {:controller => 'topics', :action => 'update', :topic => {:locked => @topic.locked ? "false" : "true" }}, :method => :put %>
+    </span>
+  </div>
+  <div>
+    <table>
+      <% @topic.posts.each do |post| %>
+      <tr>
+        <td class="post_author" rowspan="2">
+          <span class="name"><%= post.user.username %></span>
+          <span class="avatar"><!-- This space reserved for Avatar --></span>
+          <span class="info smaller">
+            Posts <%= post.user.posts.size %><br />
+            Registered <%= post.user.created_at.to_s(:joined) %><br />
+          </span>
+        </td>
+        <td class="post_header">
+          <span class="left post_date smaller">Posted <%= post.created_at %></span>
+          <span class="right controls">
+            <%= link_to "Reply", new_topic_post_path(@topic) %>
+            <%= link_to "Quote", new_topic_post_path(@topic, :quote => post) %>
+            <%= link_to "Edit", edit_post_path(post) %>
+            <%= link_to "Delete", post, :confirm => "Are you sure?", :method => :delete %>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td class="post_body">
+          <%= post.body %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
