@@ -6,8 +6,8 @@ I will be working on a refactoring of this code, please report any bugs you may 
 
 Forum Monster is a simple forum generator written in rails 3. The goal of Forum Monster, is to provide a simple, and easy to setup forum application without having to dictate how your site it setup. 
 
-Live Demo: http://forum_monster.dev.codezombie.org
-Github Repo for Demo: https://github.com/gitt/forum_monster_demo
+* Live Demo: http://forum_monster.dev.codezombie.org
+* Github Repo for Demo: https://github.com/gitt/forum_monster_demo
 
 ====A few things about what Forum Monster is, and is not:
 
