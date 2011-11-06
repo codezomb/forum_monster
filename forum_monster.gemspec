@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
     "README.rdoc"
   ]
   
-  s.require_paths = 'lib'
+  s.require_paths = ['lib']
   s.files = `git ls-files`.split("\n")
   s.executables = `git ls-files`.split("\n").map{|f| f =~ /^bin\/(.*)/ ? $1 : nil}.compact
   
