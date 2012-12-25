@@ -33,7 +33,7 @@
       </tr>
       <tr>
         <td class="post_body">
-          <%= post.body %>
+          <%= simple_format(auto_link(post.body)) %>
         </td>
       </tr>
       <% end %>
