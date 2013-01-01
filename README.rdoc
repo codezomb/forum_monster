@@ -1,5 +1,11 @@
 =Forum Monster
 
+    I've recently just pushed up an initial commit for the new forum monster engine. This will eventually 
+    replace the generator, though I will keep the branch for backwards compatability. I don't generally 
+    have a lot of time for OSS, so I will welcome any pull requests for the engine.
+    
+    You can find the initial engine code in the engine branch.
+
 I've re-activated the issue tracker on the Github repository page.
 I will be working on a refactoring of this code, please report any bugs you may find. I will greatly appreciate it.
 *Pull requests welcome!*
