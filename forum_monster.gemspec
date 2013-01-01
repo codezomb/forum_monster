@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{forum_monster}
-  s.version = "1.0.3"
+  s.version = "1.0.4"
   s.platform = Gem::Platform::RUBY
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
@@ -14,16 +14,16 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/gitt/forum_monster"
   s.description = "A Simple Rails 3 Forum Generator"
   s.summary = "Forum Monster - #{s.version}"
-  
+
   s.extra_rdoc_files = [
     "LICENSE",
     "README.rdoc"
   ]
-  
+
   s.require_paths = ['lib']
   s.files = `git ls-files`.split("\n")
   s.executables = `git ls-files`.split("\n").map{|f| f =~ /^bin\/(.*)/ ? $1 : nil}.compact
-  
+
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
