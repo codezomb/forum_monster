@@ -1,0 +1,5 @@
+en:
+  time:
+    formats:
+      default:  "%b, %d %Y"
+      posted:   "%b, %d %Y at %l:%M %p %Z"

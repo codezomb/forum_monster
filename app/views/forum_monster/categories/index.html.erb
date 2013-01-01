@@ -1,0 +1,24 @@
+<div class="right controls"><%= link_to "New Forum Category", new_category_path %></div>
+<% categories.each do |category| %>
+  <div class="module">
+    <div class="module_header">
+      <%= category.name %>
+      <span class="controls right">
+        <%= link_to "New Forum", new_forum_path(:category_id => category) %>
+        <%= link_to "Edit Category", edit_category_path(category) %>
+        <%= link_to "Delete Category", category_path(category), :confirm => "Are you sure you want to delete this category?", :method => :delete %>
+      </span>
+    </div>
+    <div>
+      <table>
+        <tr class="smaller">
+          <th colspan="2" align="left">Forum</th>
+          <th>Topics</th>
+          <th>Posts</th>
+          <th class="last_post" align="left">Latest Topic</th>
+        </tr>
+        <%= render category.forums %>
+      </table>
+    </div>
+  </div>
+<% end %>

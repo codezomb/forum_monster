@@ -1,0 +1,12 @@
+<tr>
+  <td class="icon"></td>
+  <td class="description">
+    <%= link_to forum.title, forum_path(forum) %><br />
+    <span class="smaller"><%= forum.description %></span>
+  </td>
+  <td class="counts smaller"><%= forum.topics.size %></td>
+  <td class="counts smaller"><%= forum.posts_count %></td>
+  <td class="last_post smaller">
+    <%= last_topic(forum) %>
+  </td>
+</tr>

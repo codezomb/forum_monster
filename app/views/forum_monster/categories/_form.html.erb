@@ -1,0 +1,12 @@
+<%= errors_for(category) %>
+
+<div class="module">
+  <div class="module_header"><%= action_name.humanize %> Forum</div>
+  <div class="module_body">
+    <%= simple_form_for category do |f| %>
+      <%= f.input :name %>
+      <%= f.button :submit %>
+      <%= link_to "Cancel", root_url %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ForumMonster</title>
+  <%= stylesheet_link_tag    "forum_monster/application", :media => "all" %>
+  <%= javascript_include_tag "forum_monster/application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% flash.each do |msg| %>
+  <p><%= msg %></p>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>

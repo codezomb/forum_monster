@@ -1,0 +1,13 @@
+<%= errors_for(forum) %>
+
+<div class="module">
+  <div class="module_header"><%= t "#{action_name}_forum" %></div>
+  <div class="module_body">
+    <%= simple_form_for forum, :url => url do |f| %>
+      <%= f.input :title %>
+      <%= f.input :description, :input_html => { :cols => 100, :rows => 3 } %>
+      <%= f.submit %>
+      <%= link_to "Cancel", forum.new_record? ? root_url : forum %>
+    <% end %>
+  </div>
+</div>

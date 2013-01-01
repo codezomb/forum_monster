@@ -1,3 +1,6 @@
-module ForumMonster
-  # Empty file... For simplicity!
-end
+require 'forum_monster/engine'
+require 'forum_monster/configuration'
+require 'forum_monster/acts_as_forum_monster'
+require 'decent_exposure'
+require 'simple_form'
+require 'gravtastic'

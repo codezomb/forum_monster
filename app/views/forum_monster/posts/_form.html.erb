@@ -1,0 +1,12 @@
+<%= errors_for(@post) %>
+
+<div class="module">
+  <div class="module_header"><%= action_name.humanize %> Forum</div>
+  <div class="module_body">
+    <%= simple_form_for @post, :url => url do |f| %>
+      <%= f.input :body, :input_html => { :cols => 100, :rows => 10 } %>
+      <%= f.submit %>
+      <%= link_to "Cancel", @post.topic %>
+    <% end %>
+  </div>
+</div>

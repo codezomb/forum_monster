@@ -1,0 +1,12 @@
+<tr>
+  <td class="icon"></td>
+  <td class="description">
+    <%= link_to topic.title, topic_path(topic) %><br />
+    <span class="smaller">by <%= topic.poster.fm_username %></span>
+  </td>
+  <td class="counts smaller"><%= topic.posts.size %></td>
+  <td class="counts smaller"><%= topic.hits %></td>
+  <td class="last_post smaller">
+    <%= last_post(topic) %>
+  </td>
+</tr>

@@ -1,0 +1,39 @@
+<div class="right controls"><%= link_to "Back to Forum", forum_path(@topic.forum) %></div>
+<div class="module">
+  <div class="module_header">
+    <%= @topic.title %>
+    <span class="right controls">
+      <%= link_to @topic.stickied ? "Unstick" : "Sticky", sticky_topic_path(@topic), :method => :put %>
+      <%= link_to @topic.locked ? "Unlock" : "Lock", lock_topic_path(@topic), :method => :put %>
+    </span>
+  </div>
+  <div>
+    <table>
+      <tr>
+        <td class="post_author" rowspan="2">
+          <span class="name"><%= @topic.poster.fm_username %></span>
+          <span class="avatar"><%= image_tag @topic.poster.fm_avatar if @topic.poster.fm_avatar %></span>
+          <span class="info smaller">
+            Posts <%= @topic.poster.fm_post_count %><br />
+            Registered <%= l @topic.poster.created_at, :format => :default %><br />
+          </span>
+        </td>
+        <td class="post_header">
+          <span class="left post_date smaller">Posted <%= l @topic.created_at, :format => :posted %></span>
+          <span class="right controls">
+            <%= link_to "Reply", new_post_path(:topic_id => @topic.id) %>
+            <%= link_to "Edit", edit_topic_path(@topic) %>
+            <%= link_to @topic.flagged ? "Unflag" : "Flag", flag_topic_path(@topic), :method => :put %>
+            <%= link_to "Delete", topic_path(@topic), :confirm => "Are you sure?", :method => :delete %>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td class="post_body">
+          <%= @topic.body.html_safe %>
+        </td>
+      </tr>
+			<%= render @topic.posts %>
+    </table>
+  </div>
+</div>

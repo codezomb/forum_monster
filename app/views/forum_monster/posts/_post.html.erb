@@ -1,0 +1,23 @@
+<tr>
+  <td class="post_author" rowspan="2">
+    <span class="name"><%= post.poster.fm_username %></span>
+    <span class="avatar"><%= image_tag post.poster.fm_avatar if post.poster.fm_avatar %></span>
+    <span class="info smaller">
+      Posts <%= post.poster.fm_post_count %><br />
+      Registered <%= l post.poster.created_at, :format => :default %><br />
+    </span>
+  </td>
+  <td class="post_header">
+    <span class="left post_date smaller">Posted <%= l @topic.created_at, :format => :posted %></span>
+      <span class="right controls">
+        <%= link_to "Edit", edit_post_path(post) %>
+        <%= link_to "Flag", flag_post_path(post), :method => :put %>
+        <%= link_to "Delete", post_path(post), :confirm => "Are you sure?", :method => :delete %>
+      </span>
+  </td>
+</tr>
+<tr>
+  <td class="post_body">
+    <%= markup(post.body).html_safe %>
+  </td>
+</tr>
