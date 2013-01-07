@@ -39,8 +39,6 @@ module ForumMonster
 
     protected
 
-      private
-
       def find
         @post = ForumMonster::Post.find(params[:id])
       end
