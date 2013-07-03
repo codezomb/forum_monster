@@ -1,4 +1,4 @@
-=Forum Monster
+=Forum Monster {<img src="https://codeclimate.com/github/gitt/forum_monster.png" />}[https://codeclimate.com/github/gitt/forum_monster]
 
     I've recently just pushed up an initial commit for the new forum monster engine. This will eventually 
     replace the generator, though I will keep the branch for backwards compatability. I don't generally 
