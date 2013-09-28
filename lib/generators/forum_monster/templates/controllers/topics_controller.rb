@@ -1,4 +1,5 @@
 class TopicsController < ApplicationController  
+ 
   def show
     @topic = Topic.find(params[:id])
     @topic.hit! if @topic
@@ -11,7 +12,7 @@ class TopicsController < ApplicationController
   
   def create
     @forum = Forum.find(params[:forum_id])
-    @topic = @forum.topics.build(params[:topic])
+    @topic = @forum.topics.build(permitted_params)
     @topic.user = current_user
     
     if @topic.save
@@ -29,7 +30,7 @@ class TopicsController < ApplicationController
   def update
     @topic = Topic.find(params[:id])
     
-    if @topic.update_attributes(params[:topic])
+    if @topic.update_attributes(permitted_params)
       flash[:notice] = "Topic was updated successfully."
       redirect_to topic_url(@topic)
     end
@@ -43,4 +44,11 @@ class TopicsController < ApplicationController
       redirect_to forum_url(@topic.forum)
     end
   end
+
+  private
+
+    def permitted_params
+      params.require(:topic).permit(:title, :body, :sticky, :locked)
+    end
+
 end

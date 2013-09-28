@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController  
+
   def index
     @categories = Category.all
   end
@@ -8,7 +9,7 @@ class CategoriesController < ApplicationController
   end
   
   def create
-    @category = Category.new(params[:category])
+    @category = Category.new(permitted_params)
     
     if @category.save
       flash[:notice] = "Category was successfully created."
@@ -25,7 +26,7 @@ class CategoriesController < ApplicationController
   def update
     @category = Category.find(params[:id])
     
-    if @category.update_attributes(params[:category])
+    if @category.update_attributes(permitted_params)
       flash[:notice] = "Category was updated successfully."
       redirect_to forums_url
     end
@@ -39,4 +40,11 @@ class CategoriesController < ApplicationController
       redirect_to forums_url
     end
   end
+
+  private
+
+    def permitted_params
+      params.require(:category).permit(:title, :state, :position, :category_id)
+    end
+
 end

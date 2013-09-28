@@ -6,9 +6,6 @@ class Forum < ActiveRecord::Base
   
   belongs_to :category
   
-  # Accessors
-  attr_accessible :title, :description, :state, :position, :category_id
-  
   # Scopes
   default_scope :order => 'position ASC'
   
@@ -16,4 +13,5 @@ class Forum < ActiveRecord::Base
   validates :title,       :presence => true
   validates :description, :presence => true
   validates :category_id, :presence => true
+
 end

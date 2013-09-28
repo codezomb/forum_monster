@@ -1,4 +1,5 @@
 class ForumsController < ApplicationController    
+
   def show
     @forum = Forum.find(params[:id])
   end
@@ -8,7 +9,7 @@ class ForumsController < ApplicationController
   end
   
   def create
-    @forum = Forum.new(params[:forum])
+    @forum = Forum.new(permitted_params)
     
     if @forum.save
       flash[:notice] = "Forum was successfully created."
@@ -25,7 +26,7 @@ class ForumsController < ApplicationController
   def update
     @forum = Forum.find(params[:id])
     
-    if @forum.update_attributes(params[:forum])
+    if @forum.update_attributes(permitted_params)
       flash[:notice] = "Forum was updated successfully."
       redirect_to forum_url(@forum)
     end
@@ -39,4 +40,10 @@ class ForumsController < ApplicationController
       redirect_to forums_url
     end
   end
+
+  private
+
+    def permitted_params
+      params.require(:forum).permit(:title, :description, :state, :position, :category_id)
+    end
 end

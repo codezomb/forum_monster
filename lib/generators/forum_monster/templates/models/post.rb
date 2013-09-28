@@ -5,9 +5,6 @@ class Post < ActiveRecord::Base
   belongs_to :topic, :counter_cache => true, :touch => true 
   belongs_to :user, :class_name => "<%= "#{singular_camel_case_name}" %>", :counter_cache => true
   
-  # Accessors
-  attr_accessible :body
-  
   # Validations
   validates :body, :presence => true
   validates :user, :presence => true
@@ -31,4 +28,5 @@ class Post < ActiveRecord::Base
         false
       end
     end
+
 end

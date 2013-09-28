@@ -1,4 +1,5 @@
 class PostsController < ApplicationController    
+
   def new
     @topic = Topic.find(params[:topic_id])
     @post = Post.new
@@ -13,7 +14,7 @@ class PostsController < ApplicationController
   
   def create
     @topic = Topic.find(params[:topic_id])
-    @post = @topic.posts.build(params[:post])
+    @post = @topic.posts.build(permitted_params)
     @post.forum = @topic.forum
     @post.user = current_user
     
@@ -32,7 +33,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
 
-    if @post.update_attributes(params[:post])
+    if @post.update_attributes(permitted_params)
       flash[:notice] = "Post was successfully updated."
       redirect_to topic_path(@post.topic)
     end
@@ -53,4 +54,11 @@ class PostsController < ApplicationController
       end
     end
   end
+
+  private
+
+    def permitted_params
+      params.require(:post).permit(:body)
+    end
+
 end
